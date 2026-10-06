@@ -64,6 +64,7 @@ func spawn_cactus() -> void:
 func game_over() -> void:
 	lost = true
 	$GameOver.show()
+	$SpawnCactusTimer.stop()
 
 
 func reset() -> void:
@@ -72,6 +73,7 @@ func reset() -> void:
 	for i in $Cacti.get_children():
 		i.queue_free()
 	$Dino.position = Vector2(150, 381)
+	$SpawnCactusTimer.start(5)
 
 
 class Cactus extends StaticBody2D:
