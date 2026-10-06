@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dpq8ixrg7a7yn"]
+
+[ext_resource type="Script" uid="uid://dso531k5kxjuw" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://c3scynctxv015" path="res://icon.svg" id="1_ig7tw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1dvcg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dvcg"]
+size = Vector2(50, 100)
+
+[node name="Main" type="Control" unique_id=1862383503]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="Gound" type="StaticBody2D" parent="." unique_id=795635992]
+position = Vector2(0, 432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gound" unique_id=1178499929]
+position = Vector2(0, 1)
+shape = SubResource("WorldBoundaryShape2D_1dvcg")
+
+[node name="TextureRect" type="TextureRect" parent="Gound" unique_id=172706709]
+offset_right = 1280.0
+offset_bottom = 128.0
+texture = ExtResource("1_ig7tw")
+stretch_mode = 1
+
+[node name="Dino" type="CharacterBody2D" parent="." unique_id=663751221]
+position = Vector2(150, 381)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dino" unique_id=162825170]
+shape = SubResource("RectangleShape2D_1dvcg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dino" unique_id=1866001120]
+position = Vector2(0, 0.9999924)
+scale = Vector2(0.39062497, 0.78124994)
+texture = ExtResource("1_ig7tw")
+
+[node name="DamageArea" type="Area2D" parent="Dino" unique_id=425425554]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dino/DamageArea" unique_id=1630878810]
+shape = SubResource("RectangleShape2D_1dvcg")
+
+[node name="GameOver" type="PanelContainer" parent="." unique_id=1079839601]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver" unique_id=1998259299]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/MarginContainer" unique_id=320019730]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/MarginContainer/VBoxContainer" unique_id=1710817108]
+layout_mode = 2
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="GameOver/MarginContainer/VBoxContainer" unique_id=1080223131]
+layout_mode = 2
+text = "Restart"
+
+[node name="Cacti" type="Node2D" parent="." unique_id=420356092]
+
+[node name="SpawnCactusTimer" type="Timer" parent="." unique_id=726605198]
+one_shot = true
