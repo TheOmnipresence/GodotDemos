@@ -15,13 +15,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Multiply things like acceleration by delta to make them not go too fast
 func _physics_process(delta: float) -> void:
-	pass
+	print(is_hover)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and is_hover:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !fired:
 		if event.pressed:
-			is_drag = true
-			drag()
+			if is_hover:
+				is_drag = true
+				drag()
 		else:
 			is_drag = false
 func drag():
@@ -30,6 +31,7 @@ func drag():
 	freeze = false
 #	gets direction from bird position to mouse position, flips it, then multiplies to make the force non-negligable
 	apply_impulse(-global_position.direction_to(get_global_mouse_position()) * 2000)
+	fired = true
 
 
 func _on_body_entered(body: Node) -> void:

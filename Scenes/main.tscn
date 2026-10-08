@@ -9,7 +9,7 @@ radius = 83.0542
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5ngm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ngm"]
-size = Vector2(60, 60)
+size = Vector2(32, 244)
 
 [node name="Main" type="Node2D" unique_id=1299301982]
 
@@ -39,72 +39,28 @@ shape = SubResource("WorldBoundaryShape2D_l5ngm")
 position = Vector2(104, 311)
 
 [node name="Block" type="RigidBody2D" parent="Blocks" unique_id=1870511021]
+position = Vector2(-72, 197)
 mass = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block" unique_id=1920768931]
+position = Vector2(-14, -92)
 shape = SubResource("RectangleShape2D_l5ngm")
 
-[node name="Block2" type="RigidBody2D" parent="Blocks" unique_id=1578634272]
-position = Vector2(32, -62)
+[node name="Block2" type="RigidBody2D" parent="Blocks" unique_id=928005699]
+position = Vector2(-72, -23)
+rotation = 1.5707964
 mass = 0.1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block2" unique_id=1947836585]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block2" unique_id=1035344880]
+position = Vector2(-14, -92)
 shape = SubResource("RectangleShape2D_l5ngm")
 
-[node name="Block3" type="RigidBody2D" parent="Blocks" unique_id=632182459]
-position = Vector2(63, 0)
+[node name="Block3" type="RigidBody2D" parent="Blocks" unique_id=1427059936]
+position = Vector2(142, 197)
 mass = 0.1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block3" unique_id=56817068]
-shape = SubResource("RectangleShape2D_l5ngm")
-
-[node name="Block4" type="RigidBody2D" parent="Blocks" unique_id=102583848]
-position = Vector2(128, -1)
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block4" unique_id=1367246187]
-shape = SubResource("RectangleShape2D_l5ngm")
-
-[node name="Block5" type="RigidBody2D" parent="Blocks" unique_id=575877807]
-position = Vector2(160, -63)
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block5" unique_id=2022743525]
-shape = SubResource("RectangleShape2D_l5ngm")
-
-[node name="Block6" type="RigidBody2D" parent="Blocks" unique_id=579165619]
-position = Vector2(191, -1)
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block6" unique_id=278974190]
-shape = SubResource("RectangleShape2D_l5ngm")
-
-[node name="Block7" type="RigidBody2D" parent="Blocks" unique_id=810907930]
-position = Vector2(66, -127)
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block7" unique_id=1170192888]
-shape = SubResource("RectangleShape2D_l5ngm")
-
-[node name="Block8" type="RigidBody2D" parent="Blocks" unique_id=1796682587]
-position = Vector2(98, -189)
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block8" unique_id=308520289]
-shape = SubResource("RectangleShape2D_l5ngm")
-
-[node name="Block9" type="RigidBody2D" parent="Blocks" unique_id=161315625]
-position = Vector2(129, -127)
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block9" unique_id=936840445]
-shape = SubResource("RectangleShape2D_l5ngm")
-
-[node name="Block10" type="RigidBody2D" parent="Blocks" unique_id=296631291]
-position = Vector2(95, -65)
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block10" unique_id=1572658215]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block3" unique_id=85075750]
+position = Vector2(-16, -92)
 shape = SubResource("RectangleShape2D_l5ngm")
 
 [connection signal="body_entered" from="Bird" to="Bird" method="_on_body_entered"]
