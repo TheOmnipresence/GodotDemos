@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bdwxguqft02f3"]
+
+[ext_resource type="Script" uid="uid://bl022m7tse6y2" path="res://Scripts/bird.gd" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://c3scynctxv015" path="res://Sprites/icon.svg" id="2_8gbba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slncx"]
+radius = 83.0542
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5ngm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ngm"]
+size = Vector2(60, 60)
+
+[node name="Main" type="Node2D" unique_id=1299301982]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1014792934]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Bird" type="RigidBody2D" parent="." unique_id=984547645]
+position = Vector2(-875.99994, 184.99998)
+input_pickable = true
+script = ExtResource("1_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bird" unique_id=1213510344]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_8gbba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird" unique_id=1258194559]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_slncx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1495338292]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1405927587 groups=["Ground"]]
+position = Vector2(0, 544)
+shape = SubResource("WorldBoundaryShape2D_l5ngm")
+
+[node name="Blocks" type="Node2D" parent="." unique_id=691387676]
+position = Vector2(104, 311)
+
+[node name="Block" type="RigidBody2D" parent="Blocks" unique_id=1870511021]
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block" unique_id=1920768931]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block2" type="RigidBody2D" parent="Blocks" unique_id=1578634272]
+position = Vector2(32, -62)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block2" unique_id=1947836585]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block3" type="RigidBody2D" parent="Blocks" unique_id=632182459]
+position = Vector2(63, 0)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block3" unique_id=56817068]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block4" type="RigidBody2D" parent="Blocks" unique_id=102583848]
+position = Vector2(128, -1)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block4" unique_id=1367246187]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block5" type="RigidBody2D" parent="Blocks" unique_id=575877807]
+position = Vector2(160, -63)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block5" unique_id=2022743525]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block6" type="RigidBody2D" parent="Blocks" unique_id=579165619]
+position = Vector2(191, -1)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block6" unique_id=278974190]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block7" type="RigidBody2D" parent="Blocks" unique_id=810907930]
+position = Vector2(66, -127)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block7" unique_id=1170192888]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block8" type="RigidBody2D" parent="Blocks" unique_id=1796682587]
+position = Vector2(98, -189)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block8" unique_id=308520289]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block9" type="RigidBody2D" parent="Blocks" unique_id=161315625]
+position = Vector2(129, -127)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block9" unique_id=936840445]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Block10" type="RigidBody2D" parent="Blocks" unique_id=296631291]
+position = Vector2(95, -65)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block10" unique_id=1572658215]
+shape = SubResource("RectangleShape2D_l5ngm")
+
+[connection signal="body_entered" from="Bird" to="Bird" method="_on_body_entered"]
+[connection signal="mouse_entered" from="Bird" to="Bird" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bird" to="Bird" method="_on_mouse_exited"]
