@@ -25,6 +25,8 @@ window/stretch/aspect="expand"
 [global_group]
 
 Ground=""
+Pig=""
+Bird=""
 
 [input]
 

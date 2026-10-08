@@ -15,7 +15,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Multiply things like acceleration by delta to make them not go too fast
 func _physics_process(delta: float) -> void:
-	print(is_hover)
+	pass
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !fired:
@@ -34,14 +34,14 @@ func drag():
 	fired = true
 
 
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Ground"):
-		queue_free()
-
-
 func _on_mouse_entered() -> void:
 	is_hover = true
 
 
 func _on_mouse_exited() -> void:
 	is_hover = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Ground"):
+		queue_free()

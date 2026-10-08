@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bl022m7tse6y2" path="res://Scripts/bird.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://c3scynctxv015" path="res://Sprites/icon.svg" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://br8whcq0fot25" path="res://Scripts/pig.gd" id="3_8gbba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slncx"]
 radius = 83.0542
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5ngm"]
+radius = 38.052536
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gbba"]
+radius = 38.052536
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5ngm"]
 
@@ -16,7 +23,7 @@ size = Vector2(32, 244)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1014792934]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Bird" type="RigidBody2D" parent="." unique_id=984547645]
+[node name="Bird" type="RigidBody2D" parent="." unique_id=984547645 groups=["Bird"]]
 position = Vector2(-875.99994, 184.99998)
 input_pickable = true
 script = ExtResource("1_bo1nx")
@@ -29,7 +36,30 @@ texture = ExtResource("2_8gbba")
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_slncx")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1495338292]
+[node name="Area2D" type="Area2D" parent="Bird" unique_id=378179282]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird/Area2D" unique_id=1432267012]
+shape = SubResource("CircleShape2D_l5ngm")
+
+[node name="Pig" type="RigidBody2D" parent="." unique_id=1812541876 groups=["Pig"]]
+position = Vector2(127, 213)
+input_pickable = true
+script = ExtResource("3_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pig" unique_id=1927124208]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_8gbba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pig" unique_id=120156096]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_slncx")
+
+[node name="Area2D" type="Area2D" parent="Pig" unique_id=1721680578]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pig/Area2D" unique_id=1137998455]
+shape = SubResource("CircleShape2D_8gbba")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1495338292 groups=["Ground"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1405927587 groups=["Ground"]]
 position = Vector2(0, 544)
@@ -63,6 +93,7 @@ mass = 0.1
 position = Vector2(-16, -92)
 shape = SubResource("RectangleShape2D_l5ngm")
 
-[connection signal="body_entered" from="Bird" to="Bird" method="_on_body_entered"]
 [connection signal="mouse_entered" from="Bird" to="Bird" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bird" to="Bird" method="_on_mouse_exited"]
+[connection signal="body_entered" from="Bird/Area2D" to="Bird" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pig/Area2D" to="Pig" method="_on_area_2d_body_entered"]
