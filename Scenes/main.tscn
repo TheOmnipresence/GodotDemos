@@ -76,6 +76,11 @@ mass = 0.1
 position = Vector2(-14, -92)
 shape = SubResource("RectangleShape2D_l5ngm")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Blocks/Block" unique_id=165199988]
+position = Vector2(-14.000008, -92.00001)
+scale = Vector2(0.24999991, 1.90625)
+texture = ExtResource("2_8gbba")
+
 [node name="Block2" type="RigidBody2D" parent="Blocks" unique_id=928005699]
 position = Vector2(-72, -23)
 rotation = 1.5707964
@@ -85,6 +90,11 @@ mass = 0.1
 position = Vector2(-14, -92)
 shape = SubResource("RectangleShape2D_l5ngm")
 
+[node name="Sprite2D" type="Sprite2D" parent="Blocks/Block2" unique_id=1788246009]
+position = Vector2(-14.015601, -92.16634)
+scale = Vector2(0.24906008, 1.9081528)
+texture = ExtResource("2_8gbba")
+
 [node name="Block3" type="RigidBody2D" parent="Blocks" unique_id=1427059936]
 position = Vector2(142, 197)
 mass = 0.1
@@ -92,6 +102,11 @@ mass = 0.1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block3" unique_id=85075750]
 position = Vector2(-16, -92)
 shape = SubResource("RectangleShape2D_l5ngm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Blocks/Block3" unique_id=144078120]
+position = Vector2(-16.000008, -92.00001)
+scale = Vector2(0.24999991, 1.90625)
+texture = ExtResource("2_8gbba")
 
 [connection signal="mouse_entered" from="Bird" to="Bird" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bird" to="Bird" method="_on_mouse_exited"]
