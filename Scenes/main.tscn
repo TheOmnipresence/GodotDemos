@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdwxguqft02f3"]
 
 [ext_resource type="Script" uid="uid://bl022m7tse6y2" path="res://Scripts/bird.gd" id="1_bo1nx"]
-[ext_resource type="Script" uid="uid://cdq3uese8xe7w" path="res://Scripts/LevelHandler.gd" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://cdq3uese8xe7w" path="res://Scripts/level_handler.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://c3scynctxv015" path="res://Sprites/icon.svg" id="2_8gbba"]
 [ext_resource type="Script" uid="uid://br8whcq0fot25" path="res://Scripts/pig.gd" id="3_8gbba"]
 
