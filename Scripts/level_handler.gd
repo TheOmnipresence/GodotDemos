@@ -1,6 +1,6 @@
 class_name LevelHandler extends Node2D
-
-
+## Level Number
+@export var levelNum = 0
 ## All alive [Pig]s
 var pigs: Array[Pig] = []
 
@@ -18,4 +18,11 @@ func _process(_delta: float) -> void:
 			pigs.remove_at(pigs.find(pig))
 	if pigs.is_empty():
 		# Player has won, reset
-		get_tree().reload_current_scene()
+		_next_level()
+
+#Gets the next level and changes the scene to it
+#str converts this level's number + 1 to a string
+#concats that to the file path
+#change_scene_to_file sets the scene
+func _next_level():
+	get_tree().change_scene_to_file("res://Scenes/level" + str(levelNum + 1) +".tscn")
