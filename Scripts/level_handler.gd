@@ -20,9 +20,10 @@ func _process(_delta: float) -> void:
 		# Player has won, reset
 		_next_level()
 
-#Gets the next level and changes the scene to it
-#str converts this level's number + 1 to a string
-#concats that to the file path
-#change_scene_to_file sets the scene
+# Gets the next level and changes the scene to it
+# str converts this level's number + 1 to a string
+# concats that to the file path
+# change_scene_to_file sets the scene
+# Just make sure there is a level after
 func _next_level():
 	get_tree().change_scene_to_file("res://Scenes/level" + str(levelNum + 1) +".tscn")
