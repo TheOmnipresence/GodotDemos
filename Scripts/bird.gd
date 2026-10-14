@@ -13,11 +13,6 @@ func _ready() -> void:
 	freeze = true
 
 
-# Multiply things like acceleration by delta to make them not go too fast
-func _physics_process(_delta: float) -> void:
-	pass
-
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not fired:
@@ -29,9 +24,10 @@ func _input(event: InputEvent) -> void:
 				is_drag = false
 
 
+## Drags the bird
 func drag():
 	while is_drag:
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().process_frame
 	freeze = false
 	# gets direction from bird position to mouse position, flips it, then multiplies to make the force non-negligable
 	apply_impulse(-global_position.direction_to(get_global_mouse_position()) * 2000)
@@ -48,4 +44,4 @@ func _on_mouse_exited() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Ground"):
-		queue_free()
+		queue_free() # Delete if it touches ground
