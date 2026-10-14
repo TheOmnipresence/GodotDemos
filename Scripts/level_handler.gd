@@ -13,8 +13,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	for pig: Pig in pigs:
+#		Removes pig from list if null (ignore the errors it functions)
 		if pig == null:
-			pigs.erase(pig) # Remove pigs if they're null
+			pigs.remove_at(pigs.find(pig))
 	if pigs.is_empty():
 		# Player has won, reset
 		get_tree().reload_current_scene()
